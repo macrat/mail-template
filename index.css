@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    color: #333;
+}
+h1 {
+    font-size: inherit;
+    text-align: center;
+    color: #777;
+    margin: 0 8px 32px;
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+label {
+    color: #999;
+}
+label:has(input) {
+    display: flex;
+    padding: 8px 0;
+}
+label:has(input), #subjectArea, #bodyArea {
+    border-bottom: 1px solid #ccc;
+}
+label > input {
+    flex: 1 1 0;
+    margin-left: 8px;
+    border: none;
+}
+input:focus, textarea:focus {
+    outline: none;
+}
+label:has(input):focus-within, #subjectArea:focus-within, #bodyArea:focus-within {
+    border-bottom-color: #333;
+}
+#subjectArea, #bodyArea {
+    position: relative;
+}
+#subjectArea {
+    padding: 8px 0;
+}
+#subjectArea > label {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    transition: color .2s;
+}
+#subjectArea:has(input:not(:invalid)) > label {
+    color: transparent;
+}
+#subjectInput {
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+#bodyArea {
+    padding-top: 8px;
+}
+#bodyArea > label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: inherit;
+    z-index: -1;
+    transition: color .2s;
+}
+#bodyArea:has(textarea:not(:invalid)) > label {
+    color: transparent;
+}
+textarea {
+    width: 100%;
+    min-height: 12em;
+    padding: 4px 0;
+    border: none;
+    resize: vertical;
+    field-sizing: content;
+}
+input, textarea {
+    font-family: inherit;
+    font-size: initial;;
+    color: #333;
+    background-color: transparent;
+}
+#control {
+    text-align: right;
+    margin: 8px -4px 0;
+}
+button {
+    background-color: #eee;
+    font-family: inherit;
+    font-size: initial;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 2px 8px;
+    margin: 4px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+@media (hover: hover) {
+    button:hover {
+        background-color: #fff;
+    }
+}
+button:focus {
+    outline: none;
+    border-color: #333;
+}
+button:active {
+    background-color: #ddd;
+}
+
+#shareArea, #saveArea {
+    margin: 48px auto 0;
+    width: 800px;
+}
+
+#shareArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mailtoQR {
+    width: 8em;
+    height: 8em;
+}
+
+#saveArea {
+    text-align: center;
+}
+
+#mailtoLink, #saveLink {
+    display: inline-block;
+    background-color: #eee;
+    margin-top: .5em;
+    padding: .4em 1em;
+    font-size: 90%;
+    word-break: break-all;
+    font-family: monospace;
+    user-select: all;
+}
+
+.invalid-qr > #mailtoQR, .invalid-qr > div > span {
+    display: none;
+}

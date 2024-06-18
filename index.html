@@ -1,0 +1,43 @@
+<!DOCTYPE>
+
+<html lang=ja-jp>
+    <head>
+        <meta charset=UTF-8 />
+        <script src="https://cdn.jsdelivr.net/npm/qrcode@1/build/qrcode.min.js" defer></script>
+        <script src="index.js" defer></script>
+        <link rel=stylesheet href="index.css" />
+        <title>メールテンプレート</title>
+    </head>
+    <body>
+        <h1>メールテンプレート</h1>
+        <main>
+            <label>To<input id=toInput required title="メールの宛先をカンマ区切りで入力します。" /></label>
+            <label>Cc<input id=ccInput required title="メールのCcをカンマ区切りで入力します。" /></label>
+            <label>Bcc<input id=bccInput required title="メールのBccをカンマ区切りで入力します。" /></label>
+            <div id=subjectArea>
+                <label for=subjectInput>件名</label>
+                <input id=subjectInput required title="メールの件名を入力します。" />
+            </div>
+            <div id=bodyArea>
+                <label for=bodyInput>本文</label>
+                <textarea id=bodyInput required title="メールの本文を入力します。"></textarea>
+            </div>
+            <div id=control>
+                <button id=clear title="入力した内容をすべて削除します。">クリア</button>
+                <button id=openMailer title="このメールを送信する画面を開きます。">送信画面を開く</button>
+            </div>
+            <div id=shareArea>
+                <img id=mailtoQR width=512 height=512 src="empty-qr.jpg">
+                <div>
+                    <span>左のQRコードか、</span>以下のURLからメール送信画面を開くことができます。<br>
+                    ※ 環境によっては上手く開けない場合もあります。<br>
+                    <code id=mailtoLink>mailto:</code>
+                </div>
+            </div>
+            <div id=saveArea>
+                このページをブックマークすると、入力した内容を保存できます。<br>
+                <code id=saveLink></code>
+            </div>
+        </main>
+    </body>
+</html>
